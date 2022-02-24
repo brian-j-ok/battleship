@@ -1,0 +1,36 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+body>h1 {
+  text-align: center;
+}
+
+#game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 250px;
+}
+
+#player1>h2, #player2>h2 {
+  text-align: center;
+}
+
+#player1-board, #player2-board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+
+.grid {
+  height: 30px;
+  width: 30px;
+
+  border: solid 2px black;
+}
