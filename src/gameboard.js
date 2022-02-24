@@ -14,13 +14,20 @@ const Gameboard = () => {
     ships.forEach(ship => {
       if (ship.hit(coord)) { didHit = true };
     });
+    if (!didHit) {missedAttacks.push(coord)};
+
     return didHit;
+  };
+
+  const allSunk = () => {
+    return ships.every(ship => ship.isSunk() === true);
   };
 
   return {
     ships,
     setShip,
-    receiveAttack
+    receiveAttack,
+    allSunk
   };
 };
 

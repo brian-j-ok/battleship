@@ -1,4 +1,5 @@
 const Ship = (length, startCoords, direction) => {
+  let sunk = false;
   const hitArray = [];
 
   const generateArray = (() => {
@@ -18,18 +19,24 @@ const Ship = (length, startCoords, direction) => {
   const hit = coord => {
     if (!hitArray.includes(coord)) return false;
 
+    if (isSunk()) { sunk = true };
     hitArray[hitArray.indexOf(coord)] = true;
     return true;
   };
 
   const isSunk = () => {
-    return hitArray.every(x => x === true);
+    if (sunk) return sunk;
+
+    if (hitArray.every(x => x === true)) { sunk = true };
+
+    return sunk;
   };
 
   return {
     hitArray,
     hit,
-    isSunk
+    isSunk,
+    sunk
   };
 };
 
